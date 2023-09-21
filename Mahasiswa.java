@@ -28,9 +28,19 @@ public class Mahasiswa {
             String namaSiswa = scanner.nextLine();
             System.out.print("Jurusan = ");
             String   jurusan = scanner.nextLine();
-            System.out.print("Umur    = ");
-            int umurSiswa = scanner.nextInt();
-            kumpul[i-1] = new Mahasiswa(namaSiswa, umurSiswa, jurusan);
+            int umurSiswa;
+            while(true){
+                //Memastikan input umur hanya angka
+                if(scanner.hasNextInt()){
+                umurSiswa = scanner.nextInt();
+                kumpul[i-1] = new Mahasiswa(namaSiswa, umurSiswa, jurusan);
+                break;
+                }
+                else if(scanner.hasNext()){
+                    System.out.println("Maaf, hanya menerima angka.");
+                    scanner.next();
+                }
+            }
         }
         System.out.println();
         //  for(int i = 1;i <= kumpul.length; i++){
@@ -46,17 +56,17 @@ public class Mahasiswa {
         System.out.print("ingin cari mahasiswa bernama apa ? ");
         scanner.nextLine();
         String cari = scanner.nextLine();
-        for(int i = kumpul.length;i > 0; i--){
+        for(int i = kumpul.length-1;i > 0; i--){
             if(kumpul[i-1].nama.equals(cari)){
                 System.out.print("Nama    = ");
                 System.out.println(kumpul[i-1].nama);
                 System.out.print("Umur    = ");
                 System.out.println(kumpul[i-1].umur);
-                System.out.print("Jururan = ");
+                System.out.print("Jurusan = ");
                 System.out.println(kumpul[i-1].jurusan);
             }
             else{
-                System.out.println("tidak ada siswa berumur " + cari);
+                System.out.println("tidak ada siswa bernama " + cari);
             }
 
         }
