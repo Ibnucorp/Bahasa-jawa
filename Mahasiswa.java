@@ -5,7 +5,7 @@ public class Mahasiswa {
     String nama,jurusan;
     int umur;
     double ipk;
-
+    enum gender{PRIA,WANITA}
 
     public Mahasiswa(String nama, int umur, String jurusan){
         this.nama = nama;
